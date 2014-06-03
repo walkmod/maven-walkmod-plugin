@@ -1,0 +1,22 @@
+maven-walkmod-plugin
+====================
+
+Maven plugin to execute an embedded walkmod as a plugin
+
+== Usage
+
+----
+<plugin>
+	<groupId>org.walkmod</groupId>
+	<artifactId>walkmod-maven-plugin</artifactId>
+	<version>1.0</version>
+	<executions>
+		<execution>
+			<phase>generate-sources</phase>
+			<goals>
+				<goal>apply</goal>
+			</goals>
+		</execution>
+	</executions>
+</plugin>
+----
