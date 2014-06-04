@@ -1,22 +1,39 @@
 maven-walkmod-plugin
 ====================
+Raquel Pau <raquelpau@gmail.com>
 
-Maven plugin to execute an embedded walkmod as a plugin
+Maven plugin to execute an embedded http://www.walkmod.com[walkmod], an open source tool to apply coding conventions.
 
 == Usage
-
+There are three supported goals: "apply", "check", "install". 
 ----
 <plugin>
-	<groupId>org.walkmod</groupId>
-	<artifactId>walkmod-maven-plugin</artifactId>
-	<version>1.0</version>
-	<executions>
-		<execution>
-			<phase>generate-sources</phase>
-			<goals>
-				<goal>apply</goal>
-			</goals>
-		</execution>
-	</executions>
+  <groupId>org.walkmod</groupId>
+  <artifactId>walkmod-maven-plugin</artifactId>
+  <version>1.0</version>
+  <executions>
+    <execution>
+      <phase>generate-sources</phase>
+      <goals>
+        <goal>apply</goal>
+      </goals>
+    </execution>
+  </executions>
 </plugin>
 ----
+
+You can customize the following parameters in your plugin definition:
+----
+<plugin>
+  <groupId>org.walkmod</groupId>
+  <artifactId>walkmod-maven-plugin</artifactId>
+  <version>1.0</version>
+  <configuration>
+    <chains><!--by default, all chains--></chains>
+     <configFile>walkmod.xml</configFile>
+     <offline><!--by default false--></offline>
+     <printError><!--by default false--></printError>
+     <verbose><!--by default true--></verbose>
+  </configuration>
+</plugin>
+-->

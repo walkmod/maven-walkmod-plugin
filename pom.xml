@@ -5,7 +5,7 @@
 	<artifactId>walkmod-maven-plugin</artifactId>
 	<version>1.0</version>
 	<packaging>maven-plugin</packaging>
-
+	<url>https://github.com/rpau/maven-walkmod-plugin.git</url>
 	<name>WalkMod Maven Plugin</name>
 	<licenses>
 		<license>
@@ -28,6 +28,30 @@
 					<source>1.6</source>
 					<target>1.6</target>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-javadoc-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>attach-javadocs</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>attach-sources</id>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -64,7 +88,8 @@
 		</plugins>
 		<pluginManagement>
 			<plugins>
-				<!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+				<!--This plugin's configuration is used to store Eclipse m2e settings 
+					only. It has no influence on the Maven build itself. -->
 				<plugin>
 					<groupId>org.eclipse.m2e</groupId>
 					<artifactId>lifecycle-mapping</artifactId>
@@ -104,7 +129,7 @@
 		</dependency>
 		<dependency>
 			<groupId>org.walkmod</groupId>
-			<artifactId>walkmod-core</artifactId>
+			<artifactId>walkmod-cmd</artifactId>
 			<version>[1.0.3, 2.0)</version>
 		</dependency>
 		<dependency>
@@ -114,4 +139,41 @@
 			<scope>provided</scope>
 		</dependency>
 	</dependencies>
+	<profiles>
+		<profile>
+			<id>default-tools.jar</id>
+			<activation>
+				<property>
+					<name>java.vendor</name>
+					<value>Sun Microsystems Inc.</value>
+				</property>
+			</activation>
+			<dependencies>
+				<dependency>
+					<groupId>com.sun</groupId>
+					<artifactId>tools</artifactId>
+					<version>1.4.2</version>
+					<scope>system</scope>
+					<systemPath>${java.home}/../lib/tools.jar</systemPath>
+				</dependency>
+			</dependencies>
+		</profile>
+	</profiles>
+	<scm>
+		<url>https://github.com/rpau/maven-walkmod-plugin.git</url>
+		<connection>https://github.com/rpau/maven-walkmod-plugin.git</connection>
+	</scm>
+	<developers>
+		<developer>
+			<id>rpau</id>
+			<name>rpau</name>
+			<email>raquelpau@gmail.com</email>
+		</developer>
+		<developer>
+			<id>acoroleu</id>
+			<name>acoroleu</name>
+			<email>acoroleu@gmail.com</email>
+		</developer>
+	</developers>
+	<description>Maven plugin to apply coding conventions.</description>
 </project>
