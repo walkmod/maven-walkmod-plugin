@@ -36,4 +36,4 @@ You can customize the following parameters in your plugin definition:
      <verbose><!--by default true--></verbose>
   </configuration>
 </plugin>
--->
+----
