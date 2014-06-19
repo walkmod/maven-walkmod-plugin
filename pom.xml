@@ -2,11 +2,11 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.walkmod</groupId>
-	<artifactId>walkmod-maven-plugin</artifactId>
+	<artifactId>maven-walkmod-plugin</artifactId>
 	<version>1.0</version>
 	<packaging>maven-plugin</packaging>
 	<url>https://github.com/rpau/maven-walkmod-plugin.git</url>
-	<name>WalkMod Maven Plugin</name>
+	<name>Maven WalkMod Plugin</name>
 	<licenses>
 		<license>
 			<name>GNU General Public License (GPL v.3)</name>
@@ -72,19 +72,7 @@
 
 				</executions>
 			</plugin>
-			<plugin>
-				<groupId>org.walkmod</groupId>
-				<artifactId>walkmod-maven-plugin</artifactId>
-				<version>1.0</version>
-				<executions>
-					<execution>
-						<phase>generate-sources</phase>
-						<goals>
-							<goal>apply</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
+			
 		</plugins>
 		<pluginManagement>
 			<plugins>

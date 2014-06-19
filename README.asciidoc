@@ -9,7 +9,7 @@ There are three supported goals: "apply", "check", "install".
 ----
 <plugin>
   <groupId>org.walkmod</groupId>
-  <artifactId>walkmod-maven-plugin</artifactId>
+  <artifactId>maven-walkmod-plugin</artifactId>
   <version>1.0</version>
   <executions>
     <execution>
@@ -26,7 +26,7 @@ You can customize the following parameters in your plugin definition:
 ----
 <plugin>
   <groupId>org.walkmod</groupId>
-  <artifactId>walkmod-maven-plugin</artifactId>
+  <artifactId>maven-walkmod-plugin</artifactId>
   <version>1.0</version>
   <configuration>
     <chains><!--by default, all chains--></chains>
