@@ -5,7 +5,7 @@ import java.io.File;
 import junit.framework.Assert;
 
 import org.apache.maven.plugin.testing.AbstractMojoTestCase;
-import org.walkmod.mojos.CheckMojo;
+import org.walkmod.mojos.ApplyMojo;
 
 public class ApplyMojoTest extends AbstractMojoTestCase {
 	/** {@inheritDoc} */
@@ -30,7 +30,7 @@ public class ApplyMojoTest extends AbstractMojoTestCase {
 		assertNotNull(pom);
 		assertTrue(pom.exists());
 
-		CheckMojo myMojo = (CheckMojo) lookupMojo("apply", pom);
+		ApplyMojo myMojo = (ApplyMojo) lookupMojo("apply", pom);
 		assertNotNull(myMojo);
 		myMojo.execute();
 		Assert.assertTrue(true);
