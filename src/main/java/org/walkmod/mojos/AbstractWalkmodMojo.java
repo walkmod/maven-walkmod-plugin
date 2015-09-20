@@ -21,33 +21,33 @@ import org.apache.maven.plugins.annotations.Parameter;
 
 public abstract class AbstractWalkmodMojo extends AbstractMojo {
 
-	/**
-	 * Chains to execute
-	 */
-	@Parameter
-	protected String[] chains = null;
+   /**
+    * Chains to execute
+    */
+   @Parameter
+   protected String[] chains = null;
 
-	/**
-	 * If dependencies are resolved off-line 
-	 */
-	@Parameter
-	protected boolean offline = false;
+   /**
+    * If dependencies are resolved off-line 
+    */
+   @Parameter
+   protected boolean offline = false;
 
-	/**
-	 * If is executed in verbose mode.
-	 */
-	@Parameter
-	protected boolean verbose = true;
+   /**
+    * If is executed in verbose mode.
+    */
+   @Parameter
+   protected boolean verbose = true;
 
-	/**
-	 * if prints errors
-	 */
-	@Parameter
-	protected boolean printError = false;
+   /**
+    * if prints errors
+    */
+   @Parameter
+   protected boolean printError = false;
 
-	/**
-	 * Configuration file
-	 */
-	@Parameter
-	protected File configFile = new File("walkmod.xml");
+   /**
+    * Configuration file
+    */
+   @Parameter
+   protected File configFile = new File("walkmod.xml");
 }
