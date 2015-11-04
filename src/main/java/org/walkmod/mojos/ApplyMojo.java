@@ -17,18 +17,21 @@ package org.walkmod.mojos;
 
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugins.annotations.Mojo;
+import org.walkmod.OptionsBuilder;
 import org.walkmod.WalkModFacade;
 import org.walkmod.exceptions.InvalidConfigurationException;
 
 @Mojo(name = "apply")
 public class ApplyMojo extends AbstractWalkmodMojo {
 
-   public void execute() throws MojoExecutionException {
-      WalkModFacade walkmod = new WalkModFacade(configFile, offline, verbose, printError);
-      try {
-         walkmod.apply(chains);
-      } catch (InvalidConfigurationException e) {
-         throw new MojoExecutionException("Error executing walkmod apply", e);
-      }
-   }
+	public void execute() throws MojoExecutionException {
+
+		WalkModFacade walkmod = new WalkModFacade(configFile,
+				OptionsBuilder.options().printErrors(printError).offline(offline).verbose(verbose), null);
+		try {
+			walkmod.apply(chains);
+		} catch (InvalidConfigurationException e) {
+			throw new MojoExecutionException("Error executing walkmod apply", e);
+		}
+	}
 }

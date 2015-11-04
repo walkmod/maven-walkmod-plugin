@@ -17,6 +17,7 @@ package org.walkmod.mojos;
 
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugins.annotations.Mojo;
+import org.walkmod.OptionsBuilder;
 import org.walkmod.WalkModFacade;
 import org.walkmod.exceptions.InvalidConfigurationException;
 
@@ -24,7 +25,8 @@ import org.walkmod.exceptions.InvalidConfigurationException;
 public class InstallMojo extends AbstractWalkmodMojo {
 
    public void execute() throws MojoExecutionException {
-      WalkModFacade walkmod = new WalkModFacade(configFile, offline, verbose, printError);
+	   WalkModFacade walkmod = new WalkModFacade(configFile,
+				OptionsBuilder.options().printErrors(printError).offline(offline).verbose(verbose), null);
       try {
          walkmod.install();
       } catch (InvalidConfigurationException e) {
