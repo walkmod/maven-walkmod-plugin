@@ -50,4 +50,10 @@ public abstract class AbstractWalkmodMojo extends AbstractMojo {
     */
    @Parameter
    protected File configFile = new File("walkmod.xml");
+   
+   /**
+    * If skip walkmod
+    */
+   @Parameter
+   protected boolean skipWalkmod = false;
 }

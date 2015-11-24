@@ -24,13 +24,15 @@ import org.walkmod.exceptions.InvalidConfigurationException;
 @Mojo(name = "install")
 public class InstallMojo extends AbstractWalkmodMojo {
 
-   public void execute() throws MojoExecutionException {
-	   WalkModFacade walkmod = new WalkModFacade(configFile,
-				OptionsBuilder.options().printErrors(printError).offline(offline).verbose(verbose), null);
-      try {
-         walkmod.install();
-      } catch (InvalidConfigurationException e) {
-         throw new MojoExecutionException("Error executing walkmod apply", e);
-      }
-   }
+	public void execute() throws MojoExecutionException {
+		if (!skipWalkmod) {
+			WalkModFacade walkmod = new WalkModFacade(configFile,
+					OptionsBuilder.options().printErrors(printError).offline(offline).verbose(verbose), null);
+			try {
+				walkmod.install();
+			} catch (InvalidConfigurationException e) {
+				throw new MojoExecutionException("Error executing walkmod apply", e);
+			}
+		}
+	}
 }
