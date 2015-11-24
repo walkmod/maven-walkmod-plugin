@@ -17,6 +17,9 @@ There are three supported goals: "apply", "check", "install".
       <goals>
         <goal>apply</goal>
       </goals>
+      <configuration>
+         <skipWalkmod>${skipWalkmod}</skipWalkmod>
+      </configuration>
     </execution>
   </executions>
 </plugin>
