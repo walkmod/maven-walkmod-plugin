@@ -1,11 +1,11 @@
-package org.walkmod.mojos.testing;
+package org.walkmod.maven.plugins;
 
 import java.io.File;
 
 import junit.framework.Assert;
 
 import org.apache.maven.plugin.testing.AbstractMojoTestCase;
-import org.walkmod.mojos.ApplyMojo;
+import org.walkmod.maven.plugins.ApplyMojo;
 
 public class ApplyMojoTest extends AbstractMojoTestCase {
 	/** {@inheritDoc} */
@@ -35,5 +35,13 @@ public class ApplyMojoTest extends AbstractMojoTestCase {
 		myMojo.execute();
 		Assert.assertTrue(true);
 
+	}
+	
+	public void testExecutionWithSemanticAnalysis() throws Exception {
+	   File pom = getTestFile("src/test/resources/project-with-pmd/pom.xml");
+	   ApplyMojo myMojo = (ApplyMojo) lookupMojo("apply", pom);
+      assertNotNull(myMojo);
+      myMojo.execute();
+      Assert.assertTrue(true);
 	}
 }

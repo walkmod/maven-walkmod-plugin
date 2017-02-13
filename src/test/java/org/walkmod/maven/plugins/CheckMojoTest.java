@@ -1,11 +1,11 @@
-package org.walkmod.mojos.testing;
+package org.walkmod.maven.plugins;
 
 import java.io.File;
 
 import junit.framework.Assert;
 
 import org.apache.maven.plugin.testing.AbstractMojoTestCase;
-import org.walkmod.mojos.CheckMojo;
+import org.walkmod.maven.plugins.CheckMojo;
 
 
 public class CheckMojoTest extends AbstractMojoTestCase{

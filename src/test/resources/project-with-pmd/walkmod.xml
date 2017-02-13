@@ -1,0 +1,23 @@
+<!DOCTYPE walkmod PUBLIC "-//WALKMOD//DTD" "http://www.walkmod.com/dtd/walkmod-1.1.dtd">
+<walkmod>
+
+    <chain name="checkstyle">
+        <transformation type="checkstyle"/>
+    </chain>
+    
+    <chain name="pmd">
+        <transformation type="pmd">
+            <param name="configurationFile">pmd.xml</param>
+        </transformation>
+    </chain>
+
+    <chain name="dead-code-cleaner">
+        <transformation type="dead-code-cleaner"/>
+    </chain>
+
+    <chain name="override">
+        <transformation type="override"/>
+    </chain>
+    
+    
+</walkmod>

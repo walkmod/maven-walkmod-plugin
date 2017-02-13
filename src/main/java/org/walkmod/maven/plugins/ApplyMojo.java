@@ -13,26 +13,23 @@
  
  You should have received a copy of the GNU Lesser General Public License
  along with Walkmod.  If not, see <http://www.gnu.org/licenses/>.*/
-package org.walkmod.mojos;
+package org.walkmod.maven.plugins;
 
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugins.annotations.Mojo;
-import org.walkmod.OptionsBuilder;
 import org.walkmod.WalkModFacade;
 import org.walkmod.exceptions.InvalidConfigurationException;
 
-@Mojo(name = "check")
-public class CheckMojo extends AbstractWalkmodMojo {
+@Mojo(name = "apply")
+public class ApplyMojo extends AbstractWalkmodMojo {
 
-	public void execute() throws MojoExecutionException {
-		if (!skipWalkmod) {
-			WalkModFacade walkmod = new WalkModFacade(configFile,
-					OptionsBuilder.options().printErrors(printError).offline(offline).verbose(verbose), null);
-			try {
-				walkmod.check(chains);
-			} catch (InvalidConfigurationException e) {
-				throw new MojoExecutionException("Error executing walkmod check", e);
-			}
-		}
-	}
+    @Override
+    protected void run(WalkModFacade facade, String[] chainList) throws MojoExecutionException {
+        try {
+            facade.apply(chainList);
+        } catch (InvalidConfigurationException e) {
+            throw new MojoExecutionException("Error executing walkmod apply", e);
+        }
+        
+    }
 }
