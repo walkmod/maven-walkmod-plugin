@@ -20,6 +20,9 @@ import org.apache.maven.plugins.annotations.Mojo;
 import org.walkmod.WalkModFacade;
 import org.walkmod.exceptions.InvalidConfigurationException;
 
+/**
+ * Reports which files violate the applied coding style conventions
+ */
 @Mojo(name = "check")
 public class CheckMojo extends AbstractWalkmodMojo {
     

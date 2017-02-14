@@ -20,6 +20,9 @@ import org.apache.maven.plugins.annotations.Mojo;
 import org.walkmod.WalkModFacade;
 import org.walkmod.exceptions.InvalidConfigurationException;
 
+/**
+ * Modifies the source code according the applied coding style conventions
+ */
 @Mojo(name = "apply")
 public class ApplyMojo extends AbstractWalkmodMojo {
 

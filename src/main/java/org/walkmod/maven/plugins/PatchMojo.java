@@ -23,6 +23,9 @@ import org.apache.maven.plugins.annotations.Parameter;
 import org.walkmod.WalkModFacade;
 import org.walkmod.exceptions.InvalidConfigurationException;
 
+/**
+ * Generates a patch to fix the defined coding style conventions
+ */
 @Mojo(name = "patch")
 public class PatchMojo extends AbstractWalkmodMojo {
 

@@ -8,9 +8,9 @@ Maven plugin to execute an embedded http://www.walkmod.com[walkmod], an open sou
 There are three supported goals: "apply", "check", "install". 
 ----
 <plugin>
-  <groupId>org.walkmod</groupId>
-  <artifactId>maven-walkmod-plugin</artifactId>
-  <version>1.3</version>
+  <groupId>org.walkmod.maven.plugins</groupId>
+  <artifactId>walkmod-maven-plugin</artifactId>
+  <version>1.0</version>
   <executions>
     <execution>
       <phase>generate-sources</phase>
@@ -25,18 +25,4 @@ There are three supported goals: "apply", "check", "install".
 </plugin>
 ----
 
-You can customize the following parameters in your plugin definition:
-----
-<plugin>
-  <groupId>org.walkmod</groupId>
-  <artifactId>maven-walkmod-plugin</artifactId>
-  <version>1.3</version>
-  <configuration>
-    <chains><!--by default, all chains--></chains>
-     <configFile>walkmod.xml</configFile>
-     <offline><!--by default false--></offline>
-     <printError><!--by default false--></printError>
-     <verbose><!--by default true--></verbose>
-  </configuration>
-</plugin>
-----
+Check all the documentation http://walkmod.github.io/maven-walkmod-plugin/usage.html[here]

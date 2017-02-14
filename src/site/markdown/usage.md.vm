@@ -1,0 +1,56 @@
+Usage
+-----
+
+There are three supported goals: "apply", "check", "patch". 
+
+If you already have a walkmod configuration file (walkmod.xml or walkmod.yml), you can easily integrate it
+as follows:
+
+    <plugin>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>${project.artifactId}</artifactId>
+      <version>${project.version}</version>
+      <executions>
+        <execution>
+          <phase>generate-sources</phase>
+          <goals>
+            <goal>apply</goal>
+          </goals>
+          <configuration>
+             <skipWalkmod>${skipWalkmod}</skipWalkmod>
+          </configuration>
+        </execution>
+      </executions>
+    </plugin>
+
+And then, call the plugin:
+
+    mvn org.walkmod.maven.plugins:walkmod-maven-plugin:apply
+
+Running PMD quick fixes
+-----------------------
+
+If you only need to run PMD fixings, you can easily run them as follows:
+
+    mvn org.walkmod.maven.plugins:walkmod-maven-plugin:patch -Dchains=pmd -Dproperties="configurationFile=rulesets/java/basic.xml"
+
+or alternatively:
+
+    <plugin>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>${project.artifactId}</artifactId>
+      <version>${project.version}</version>
+      <executions>
+        <execution>
+          <phase>generate-sources</phase>
+          <goals>
+            <goal>apply</goal>
+          </goals>
+          <configuration>
+             <skipWalkmod>${skipWalkmod}</skipWalkmod>
+             <chains>pmd</chains>
+             <properties>rulesets/java/basic.xml</properties>
+          </configuration>
+        </execution>
+      </executions>
+    </plugin>

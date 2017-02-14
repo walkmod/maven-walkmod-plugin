@@ -5,7 +5,7 @@
 	<artifactId>walkmod-maven-plugin</artifactId>
 	<version>1.0</version>
 	<packaging>maven-plugin</packaging>
-	<url>https://github.com/rpau/maven-walkmod-plugin.git</url>
+	<url>https://github.com/walkmod/maven-walkmod-plugin</url>
 	<name>Maven WalkMod Plugin</name>
 	<licenses>
 		<license>
@@ -17,9 +17,42 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.build.resourceEncoding>UTF-8</project.build.resourceEncoding>
 		<maven.compile.encoding>UTF-8</maven.compile.encoding>
+		<github.global.server>github</github.global.server>
 	</properties>
+	<reporting>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-plugin-plugin</artifactId>
+				<version>3.4</version>
+				<configuration>
+					<goalPrefix>walkmod</goalPrefix>
+				</configuration>
+			</plugin>
+		</plugins>
+	</reporting>
 	<build>
 		<plugins>
+			<plugin>
+				<groupId>com.github.github</groupId>
+				<artifactId>site-maven-plugin</artifactId>
+				<version>0.11</version>
+				<configuration>
+					<message>Creating site for ${project.version}</message>
+					<repositoryName>maven-walkmod-plugin</repositoryName>      <!-- github repo name -->
+					<repositoryOwner>walkmod</repositoryOwner>    <!-- github username -->
+					<server>github</server>
+					<userName>rpau</userName>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>site</goal>
+						</goals>
+						<phase>site</phase>
+					</execution>
+				</executions>
+			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -58,60 +91,43 @@
 				<artifactId>maven-plugin-plugin</artifactId>
 				<version>3.4</version>
 				<configuration>
-					<goalPrefix>plugin</goalPrefix>
+					<goalPrefix>walkmod</goalPrefix>
 					<outputDirectory>target</outputDirectory>
 				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.walkmod.maven.plugins</groupId>
-				<artifactId>walkmod-maven-plugin</artifactId>
-				<version>1.0</version>
-				
 				<executions>
 					<execution>
-						<phase>generate-sources</phase>
-
+						<id>default-descriptor</id>
 						<goals>
-							<goal>patch</goal>
+							<goal>descriptor</goal>
+						</goals>
+						<phase>process-classes</phase>
+					</execution>
+
+				</executions>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-site-plugin</artifactId>
+				<version>3.4</version>
+				<dependencies>
+					<dependency>
+						<groupId>org.apache.maven.doxia</groupId>
+						<artifactId>doxia-module-markdown</artifactId>
+						<version>1.6</version>
+					</dependency>
+				</dependencies>
+				<executions>
+					<execution>
+						<id>attach-descriptor</id>
+						<goals>
+							<goal>attach-descriptor</goal>
 						</goals>
 					</execution>
 				</executions>
 			</plugin>
 		</plugins>
-		<pluginManagement>
-			<plugins>
-				<!--This plugin's configuration is used to store Eclipse m2e settings 
-					only. It has no influence on the Maven build itself. -->
-				<plugin>
-					<groupId>org.eclipse.m2e</groupId>
-					<artifactId>lifecycle-mapping</artifactId>
-					<version>1.0.0</version>
-					<configuration>
-						<lifecycleMappingMetadata>
-							<pluginExecutions>
-								<pluginExecution>
-									<pluginExecutionFilter>
-										<groupId>org.walkmod</groupId>
-										<artifactId>
-											walkmod-maven-plugin
-										</artifactId>
-										<versionRange>
-											[1.3,)
-										</versionRange>
-										<goals>
-											<goal>apply</goal>
-										</goals>
-									</pluginExecutionFilter>
-									<action>
-										<ignore></ignore>
-									</action>
-								</pluginExecution>
-							</pluginExecutions>
-						</lifecycleMappingMetadata>
-					</configuration>
-				</plugin>
-			</plugins>
-		</pluginManagement>
+
 	</build>
 	<dependencies>
 		<dependency>
@@ -170,14 +186,14 @@
 		</profile>
 	</profiles>
 	<scm>
-		<url>https://github.com/rpau/maven-walkmod-plugin.git</url>
-		<connection>https://github.com/rpau/maven-walkmod-plugin.git</connection>
+		<url>https://github.com/walkmod/maven-walkmod-plugin.git</url>
+		<connection>scm:git:git:github.com/walkmod/maven-walkmod-plugin.git</connection>
+		<developerConnection>scm:git:git@github.com/walkmod/maven-walkmod-plugin.git</developerConnection>
 	</scm>
 	<developers>
 		<developer>
 			<id>rpau</id>
-			<name>rpau</name>
-			<email>raquelpau@gmail.com</email>
+			<name>Raquel Pau</name>
 		</developer>
 	</developers>
 	<description>Maven plugin to apply coding conventions.</description>
