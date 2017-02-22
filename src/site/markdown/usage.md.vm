@@ -32,7 +32,7 @@ Running PMD quick fixes
 
 If you only need to run PMD fixings, you can easily run them as follows:
 
-    mvn org.walkmod.maven.plugins:walkmod-maven-plugin:patch -Dchains=pmd -Dproperties="configurationFile=rulesets/java/basic.xml"
+    mvn org.walkmod.maven.plugins:walkmod-maven-plugin:apply -Dchains=pmd -Dproperties="configurationFile=rulesets/java/basic.xml"
 
 or alternatively:
 

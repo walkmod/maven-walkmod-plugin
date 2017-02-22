@@ -1,6 +1,6 @@
 <project name="Walkmod Maven Plugin">
 	<bannerLeft>
-		<name>Walkmod Maven Plugin</name>
+		<name>Maven WalkMod Plugin</name>
 	</bannerLeft>
 	<skin>
 		<groupId>org.apache.maven.skins</groupId>

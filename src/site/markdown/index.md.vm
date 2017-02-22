@@ -1,14 +1,14 @@
-The Walkmod Maven Plugin
+The Maven WalkMod Plugin
 ---------------------------------------------
 
-This plugin is an alternative way to run walkmod or integrating quick fixes for the existing static code analysis tools (e.g. PMD, Checkstyle, SonarQube or FindBugs) in our development workflow. 
+This plugin is an alternative way to run [walkmod](http://walkmod.com) or integrating quick fixes for the existing static code analysis tools (e.g. PMD, Checkstyle, SonarQube or FindBugs) in our development workflow. 
 
 The plugin works with the idea that people waste a lot of time fixing coding style issues reported by static code analysis tools. This plugin automatically modifies the source code to fix all existing coding style issues according our static code analysis tool configuration.
 
 Quickstart
 ----------
 
-If we already have a walkmod.xml file, add the following to your plugins section:
+If we already have a `walkmod.xml` file, add the following to your plugins section:
 
     <plugin>
         <groupId>${project.groupId}</groupId>

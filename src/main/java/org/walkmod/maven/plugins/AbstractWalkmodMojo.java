@@ -112,12 +112,8 @@ public abstract class AbstractWalkmodMojo extends AbstractMojo {
             if (chains != null) {
                 selectedChains = chains.split(",");
             }
-            try {
-
-                walkmod.patch(selectedChains);
-            } catch (InvalidConfigurationException e) {
-                throw new MojoExecutionException("Error executing walkmod apply", e);
-            }
+            run(walkmod, selectedChains);
+            
         }
     }
 
