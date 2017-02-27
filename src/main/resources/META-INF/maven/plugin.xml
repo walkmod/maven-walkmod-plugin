@@ -7,7 +7,7 @@
   <description>Maven plugin to apply coding conventions.</description>
   <groupId>org.walkmod.maven.plugins</groupId>
   <artifactId>walkmod-maven-plugin</artifactId>
-  <version>1.0.2</version>
+  <version>1.0.3</version>
   <goalPrefix>walkmod</goalPrefix>
   <isolatedRealm>false</isolatedRealm>
   <inheritedByDefault>true</inheritedByDefault>

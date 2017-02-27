@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.walkmod.maven.plugins</groupId>
 	<artifactId>walkmod-maven-plugin</artifactId>
-	<version>1.0.2</version>
+	<version>1.0.3</version>
 	<packaging>maven-plugin</packaging>
 	<url>https://github.com/walkmod/maven-walkmod-plugin</url>
 	<name>Maven WalkMod Plugin</name>
