@@ -16,6 +16,7 @@
 package org.walkmod.maven.plugins;
 
 import org.apache.maven.plugin.MojoExecutionException;
+import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.walkmod.WalkModFacade;
 import org.walkmod.exceptions.InvalidConfigurationException;
@@ -23,7 +24,7 @@ import org.walkmod.exceptions.InvalidConfigurationException;
 /**
  * Modifies the source code according the applied coding style conventions
  */
-@Mojo(name = "apply")
+@Mojo(name = "apply", defaultPhase = LifecyclePhase.GENERATE_SOURCES, requiresProject = false)
 public class ApplyMojo extends AbstractWalkmodMojo {
 
     @Override

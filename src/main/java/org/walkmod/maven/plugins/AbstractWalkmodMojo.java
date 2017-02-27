@@ -31,25 +31,25 @@ public abstract class AbstractWalkmodMojo extends AbstractMojo {
     /**
      * Chains to execute
      */
-    @Parameter(property = "chains")
+    @Parameter(property = "chains", defaultValue = "${walkmod.chains}")
     protected String chains = null;
 
     /**
      * If dependencies are resolved off-line
      */
-    @Parameter(property = "offline")
+    @Parameter(property = "offline", defaultValue = "false")
     protected boolean offline = false;
 
     /**
      * If is executed in verbose mode.
      */
-    @Parameter(property = "verbose")
+    @Parameter(property = "verbose", defaultValue = "true")
     protected boolean verbose = true;
 
     /**
      * If prints errors
      */
-    @Parameter(property = "printError")
+    @Parameter(property = "printError",defaultValue = "false")
     protected boolean printError = false;
 
     /**
@@ -61,7 +61,7 @@ public abstract class AbstractWalkmodMojo extends AbstractMojo {
     /**
      * If skip walkmod
      */
-    @Parameter
+    @Parameter(property = "skipWalkmod")
     protected boolean skipWalkmod = false;
 
     /**
@@ -82,10 +82,12 @@ public abstract class AbstractWalkmodMojo extends AbstractMojo {
     @Parameter
     protected String[] excludes = null;
 
+
+
     /**
      * Dynamic parameters to set
      */
-    @Parameter(property = "properties")
+    @Parameter(property = "properties", defaultValue = "${walkmod.properties}")
     protected String properties = null;
 
     protected Map<String, Object> dynamicParams = null;
@@ -97,7 +99,9 @@ public abstract class AbstractWalkmodMojo extends AbstractMojo {
             if (properties != null) {
                 String[] parts = properties.split("\\=| ");
                 if (parts.length % 2 == 0) {
-                    dynamicParams = new HashMap<String, Object>();
+                    if(dynamicParams == null){
+                        dynamicParams= new HashMap<String, Object>();
+                    }
                     for (int i = 0; i < parts.length - 1; i += 2) {
                         dynamicParams.put(parts[i].trim(), parts[i + 1].trim());
                     }
@@ -123,5 +127,6 @@ public abstract class AbstractWalkmodMojo extends AbstractMojo {
     }
 
     protected abstract void run(WalkModFacade facade, String[] chainList) throws MojoExecutionException;
+
 
 }
