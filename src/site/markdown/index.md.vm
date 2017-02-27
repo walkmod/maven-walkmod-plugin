@@ -20,9 +20,6 @@ If we already have a `walkmod.xml` file, add the following to your plugins secti
               <goals>
                 <goal>apply</goal>
               </goals>
-              <configuration>
-                 <skipWalkmod>${skipWalkmod}</skipWalkmod>
-              </configuration>
             </execution>
          </executions>
     </plugin>

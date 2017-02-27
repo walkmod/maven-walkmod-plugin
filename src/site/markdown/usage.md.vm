@@ -12,13 +12,9 @@ as follows:
       <version>${project.version}</version>
       <executions>
         <execution>
-          <phase>generate-sources</phase>
           <goals>
             <goal>apply</goal>
           </goals>
-          <configuration>
-             <skipWalkmod>${skipWalkmod}</skipWalkmod>
-          </configuration>
         </execution>
       </executions>
     </plugin>
@@ -42,12 +38,11 @@ or alternatively:
       <version>${project.version}</version>
       <executions>
         <execution>
-          <phase>generate-sources</phase>
+         
           <goals>
             <goal>apply</goal>
           </goals>
           <configuration>
-             <skipWalkmod>${skipWalkmod}</skipWalkmod>
              <chains>pmd</chains>
              <properties>rulesets/java/basic.xml</properties>
           </configuration>
