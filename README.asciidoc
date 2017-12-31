@@ -26,3 +26,12 @@ There are three supported goals: "apply", "check", "install".
 ----
 
 Check all the documentation http://walkmod.github.io/maven-walkmod-plugin/usage.html[here]
+
+== Contributors
+
+Generate the Maven plugin descriptor with
+----
+mvn plugin:descriptor
+----
+
+

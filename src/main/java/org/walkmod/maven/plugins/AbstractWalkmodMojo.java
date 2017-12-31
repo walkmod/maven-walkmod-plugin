@@ -24,7 +24,6 @@ import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugins.annotations.Parameter;
 import org.walkmod.OptionsBuilder;
 import org.walkmod.WalkModFacade;
-import org.walkmod.exceptions.InvalidConfigurationException;
 
 public abstract class AbstractWalkmodMojo extends AbstractMojo {
 
@@ -41,13 +40,13 @@ public abstract class AbstractWalkmodMojo extends AbstractMojo {
     protected boolean offline = false;
 
     /**
-     * If is executed in verbose mode.
+     * If it is executed in verbose mode.
      */
     @Parameter(property = "verbose", defaultValue = "true")
     protected boolean verbose = true;
 
     /**
-     * If prints errors
+     * If it prints errors
      */
     @Parameter(property = "printError",defaultValue = "false")
     protected boolean printError = false;
@@ -59,30 +58,28 @@ public abstract class AbstractWalkmodMojo extends AbstractMojo {
     protected File configFile = new File("walkmod.xml");
 
     /**
-     * If skip walkmod
+     * If it skips walkmod
      */
     @Parameter(property = "skipWalkmod")
     protected boolean skipWalkmod = false;
 
     /**
-     * Specific source file directory
+     * Source file directory
      */
     @Parameter(property = "path")
     protected String path = null;
 
     /**
-     * Specific list of included files
+     * List of included files
      */
     @Parameter
     protected String[] includes = null;
 
     /**
-     * Specific list of excluded files
+     * List of excluded files
      */
     @Parameter
     protected String[] excludes = null;
-
-
 
     /**
      * Dynamic parameters to set
@@ -121,12 +118,8 @@ public abstract class AbstractWalkmodMojo extends AbstractMojo {
         }
     }
 
-    protected void prepare() {
-        // TODO Auto-generated method stub
-
-    }
+    protected void prepare() {}
 
     protected abstract void run(WalkModFacade facade, String[] chainList) throws MojoExecutionException;
-
 
 }
