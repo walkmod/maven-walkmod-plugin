@@ -5,21 +5,18 @@ Raquel Pau <raquelpau@gmail.com>
 Maven plugin to execute an embedded http://www.walkmod.com[walkmod], an open source tool to apply coding conventions.
 
 == Usage
-There are three supported goals: "apply", "check", "install". 
+There are three supported goals: "apply", "check", "patch". 
 ----
 <plugin>
   <groupId>org.walkmod.maven.plugins</groupId>
   <artifactId>walkmod-maven-plugin</artifactId>
-  <version>1.0</version>
+  <version>2.0</version>
   <executions>
     <execution>
-      <phase>generate-sources</phase>
+      <phase>process-classes</phase>
       <goals>
-        <goal>apply</goal>
+        <goal>patch</goal>
       </goals>
-      <configuration>
-         <skipWalkmod>${skipWalkmod}</skipWalkmod>
-      </configuration>
     </execution>
   </executions>
 </plugin>
