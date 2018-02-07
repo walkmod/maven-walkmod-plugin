@@ -18,13 +18,15 @@ package org.walkmod.maven.plugins;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
+import org.apache.maven.plugins.annotations.ResolutionScope;
 import org.walkmod.WalkModFacade;
 import org.walkmod.exceptions.InvalidConfigurationException;
 
 /**
  * Reports which files violate the applied coding style conventions
  */
-@Mojo(name = "check", defaultPhase = LifecyclePhase.GENERATE_SOURCES, requiresProject = false)
+@Mojo(name = "check", defaultPhase = LifecyclePhase.PROCESS_CLASSES,
+        requiresDependencyResolution = ResolutionScope.TEST)
 public class CheckMojo extends AbstractWalkmodMojo {
     
     @Override

@@ -21,13 +21,15 @@ import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
+import org.apache.maven.plugins.annotations.ResolutionScope;
 import org.walkmod.WalkModFacade;
 import org.walkmod.exceptions.InvalidConfigurationException;
 
 /**
  * Generates a patch to fix the defined coding style conventions
  */
-@Mojo(name = "patch", defaultPhase = LifecyclePhase.GENERATE_SOURCES, requiresProject = false)
+@Mojo(name = "patch", defaultPhase = LifecyclePhase.PROCESS_CLASSES,
+        requiresDependencyResolution = ResolutionScope.TEST)
 public class PatchMojo extends AbstractWalkmodMojo {
 
     /**
@@ -49,11 +51,11 @@ public class PatchMojo extends AbstractWalkmodMojo {
     protected String patchFormat = null;
 
     @SuppressWarnings("unchecked")
-    protected void prepare() {
+    protected void prepare() throws Exception {
+        super.prepare();
         if (dynamicParams == null) {
             dynamicParams = new HashMap();
         }
-
         dynamicParams.put("patchPerFile", Boolean.toString(patchPerFile));
         dynamicParams.put("patchPerChange", Boolean.toString(patchPerChange));
         dynamicParams.put("patchFormat", patchFormat);
